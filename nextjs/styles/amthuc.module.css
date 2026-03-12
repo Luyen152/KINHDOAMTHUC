@@ -1,0 +1,74 @@
+.wrapper {
+  background-color: #fff;
+  padding: 0; /* bỏ padding top/bottom để ảnh header không bị đẩy */
+  margin: 0;
+}
+
+/* Ảnh banner đầu trang */
+.fullWidthImageWrapper {
+  width: 100%;
+  max-width: 100vw;
+  position: relative;
+  margin: 0 auto 40px auto; /* không thừa khoảng trắng phía trên */
+  overflow: hidden;
+  padding: 0;
+}
+
+.fullWidthImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Các section nội dung */
+.section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 5%;
+  flex-wrap: wrap;
+}
+
+.reverse {
+  flex-direction: row-reverse;
+}
+
+/* Phần nội dung chữ */
+.textContainer {
+  flex: 1;
+  max-width: 50%;
+  padding: 20px;
+}
+
+.title {
+  font-family: 'Georgia', serif;
+  font-size: 2.5rem;
+  color: #f89c2b;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #333;
+  text-align: justify;
+}
+
+/* Phần ảnh trong các section */
+.imageContainer {
+  flex: 1;
+  max-width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.image {
+  border-radius: 8px;
+  object-fit: cover;
+  max-width: 100%;
+  height: auto;
+}

@@ -1,0 +1,89 @@
+.contactContainer {
+  max-width: 1200px;
+  margin: auto;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.title {
+  font-size: 42px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 18px;
+  font-weight: bold;
+  color: #444;
+  margin-bottom: 40px;
+}
+
+.formWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px;
+}
+
+.logoContainer {
+  flex: 1 1 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  flex: 1 1 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form input,
+.form textarea {
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: none;
+}
+
+.form textarea {
+  min-height: 150px;
+}
+
+.form button {
+  background-color: white;
+  color: orange;
+  border: 2px solid orange;
+  border-radius: 25px;
+  padding: 10px 25px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: center;
+}
+
+.form button:hover {
+  background-color: orange;
+  color: white;
+}
+.success {
+  margin-top: 10px;
+  color: green;
+  font-weight: bold;
+  text-align: center;
+}
+.bannerWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
+  height: 400px;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.bannerImage {
+  object-fit: cover;
+}

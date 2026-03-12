@@ -1,0 +1,347 @@
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  margin-top: 0px;
+  z-index: 1;
+}
+
+.hero-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.hero-content.active {
+  display: flex;
+}
+
+.hero-content .bg-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
+
+.text-overlay {
+  background-color: transparent;
+  padding: 40px 30px;
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.welcome-text {
+  font-family: 'Great Vibes', cursive;
+  font-size: 68px;
+  color: #f4a742;
+  margin-bottom: -30px;
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: transparent;
+  padding: 0 20px;
+  z-index: 2;
+}
+
+.main-title {
+  font-size: 50px;
+  font-weight: bold;
+  color: #98FB98;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.description {
+  font-size: 18px;
+  line-height: 1.75;
+  color: rgb(236, 236, 236);
+  margin-bottom: 30px;
+  text-align: justify;
+}
+
+.btn-xemthem {
+  padding: 12px 30px;
+  background-color: transparent;
+  border: 2px solid white;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 50px;
+  transition: 0.3s;
+}
+
+.btn-xemthem:hover {
+  background-color: rgb(255, 255, 255);
+  color: black;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  font-size: 2rem;
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transform: translateY(-50%);
+  padding: 10px 15px;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.prev {
+  left: 20px;
+}
+
+.next {
+  right: 20px;
+}
+
+/* Trang 2 */
+.intro-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px 0;
+  position: relative;
+  background-color: white;
+}
+
+.intro-image {
+  width: 20%;
+  max-width: 300px;
+}
+
+.intro-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.intro-content {
+  width: 60%;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.section-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 70px;
+  color: #f4a742;
+  margin-bottom: 20px;
+}
+
+.section-description {
+  font-size: 18px;
+  color: #7a6363;
+  line-height: 1.8;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.btn-xemthem-2 {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: #444;
+  color: white;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-xemthem-2:hover {
+  background-color: #f4a742;
+  color: black;
+}
+
+/* Mon an Hue */
+.monan-hue-section {
+  position: relative;
+  height: 100vh;
+  /* background-image: url('/img/6.jpg'); */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.monan-hue-overlay {
+  background-color: transparent;
+  padding: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  max-width: 800px;
+  width: 90%;
+}
+
+.sub-title {
+  font-size: 54px;
+  font-weight: bold;
+  color: white;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid white;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.main-title-2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 70px;
+  color: #f4a742;
+  margin: 20px 0;
+  line-height: 1.2;
+}
+
+.description {
+  font-size: 18px;
+  color: white;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.btn-xemthem:hover {
+  background-color: white;
+  color: black;
+}
+
+/* dac trung */
+
+.dactrung {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #fff;
+}
+
+.title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 70px;
+  color: #f4a742;
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: #555;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap; /* Cho responsive nếu thu nhỏ màn hình */
+}
+
+.card {
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  transition: transform 0.3s;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.image {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  object-fit: cover;
+}
+
+.text {
+  font-weight: bold;
+  font-size: 16px;
+  margin: 12px;
+  color: #333;
+  text-align: center;
+}
+
+
+/* Địa điểm */
+.dia-diem-section {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/img/8.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 120px 20px;
+  color: white;
+  text-align: center;
+  position: relative;
+}
+
+.dia-diem-section .container {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 40px;
+  border: 1px solid #fff;
+  max-width: 1000px;
+  margin: 0 auto;
+  border-radius: 12px;
+}
+
+.dia-diem-section .section-title {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-family: 'Times New Roman', Times, serif;
+  color: #f4f2f2;
+}
+
+.dia-diem-section .section-subtitle {
+  font-size: 70px;
+  color: #f4a03f;
+  font-family: 'Great Vibes', cursive;
+  margin-bottom: 30px;
+}
+
+.dia-diem-section .section-description {
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 40px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dia-diem-section .section-button {
+  display: inline-block;
+  padding: 12px 40px;
+  border: 2px solid white;
+  border-radius: 25px;
+  font-size: 16px;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.dia-diem-section .section-button:hover {
+  background-color: white;
+  color: black;
+}
+

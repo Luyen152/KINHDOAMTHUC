@@ -1,0 +1,187 @@
+/* ===== Biến & layout chính ===== */
+.adminLayout {
+  --sidebar-w: 240px;
+  --topbar-h: 56px;
+  --bg: #f2f4f8;
+  --blue: #2c98d1;
+
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+/* ===== Sidebar ===== */
+.adminSidebar {
+  width: var(--sidebar-w);
+  background: #1f2a33;
+  color: #c9d1d9;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  padding: 14px 12px;
+  overflow-y: auto;
+  border-radius: 10px 0 0 10px;
+}
+
+.adminUser {
+  text-align: center;
+  margin-bottom: 12px;
+}
+.adminUser img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.adminUser .name {
+  font-weight: 600;
+  margin-top: 6px;
+}
+.adminUser .status {
+  font-size: 12px;
+  opacity: 0.85;
+}
+.adminUser .dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4caf50;
+  margin-right: 6px;
+}
+
+.adminMenu { margin-top: 8px; }
+.item {
+  display: block;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  border-radius: 10px;
+  color: #c9d1d9;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.15s;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  width: 100%;
+}
+.item:hover { background: #2b3945; }
+.active { background: #0f7abf; color: #fff; }
+
+/* ===== Main & Topbar ===== */
+.adminMain {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.adminTopbar {
+  height: var(--topbar-h);
+  background: var(--blue);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  border-radius: 0 10px 0 0;
+}
+.hamburger {
+  background: transparent;
+  border: 0;
+  color: #fff;
+  font-size: 20px;
+}
+.topTitle { font-weight: 600; letter-spacing: 0.2px; }
+.topActions { display: flex; align-items: center; gap: 14px; }
+.link { color: #e6f4ff; text-decoration: none; }
+.avatarSm img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.adminContent { padding: 18px; }
+
+/* ===== Stats grid (dùng cho Trang chủ) ===== */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(240px, 1fr));
+  gap: 16px;
+  margin-bottom: 18px;
+}
+.statCard {
+  position: relative;
+  background: #fff;
+  border-radius: 10px;
+  color: #fff;
+  padding: 16px;
+  min-height: 120px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,.08);
+  cursor: pointer;
+}
+.statValue {
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.statLabel { font-size: 16px; font-weight: 700; opacity: .95; }
+.statAction {
+  position: absolute;
+  bottom: 10px; left: 16px;
+  background: rgba(255,255,255,.25);
+  color: #fff;
+  border: 0;
+  padding: 6px 12px;
+  border-radius: 18px;
+  font-size: 13px;
+}
+
+/* Màu thẻ */
+.orange { background: #f39c12; }  /* Doanh thu */
+.green  { background: #27ae60; }  /* Người dùng */
+.cyan   { background: #00aeef; }  /* Đơn hàng */
+.red    { background: #e74c3c; }  /* Sản phẩm */
+
+/* ===== Tinh chỉnh Bootstrap trong phạm vi local ===== */
+.adminMain :global(.card) {
+  border: 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,.06);
+  border-radius: 10px;
+}
+.adminMain :global(.table) { background: #fff; }
+.adminMain :global(.table thead th) { background: #f7f9fc !important; }
+.adminMain :global(.btn) { border-radius: 8px; }
+
+/* Chart box cao cố định */
+.chartBox { height: 420px; }
+
+.menuFooter {
+  margin-top: 20px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.backBtn {
+  background: #0f7abf;       /* xanh cùng tông active */
+  color: #fff;
+  text-align: center;
+}
+
+.backBtn:hover {
+  background: #0c6ea6;
+}
+
+
+/* ===== Responsive ===== */
+@media (max-width: 1200px) {
+  .statsGrid { grid-template-columns: repeat(2, minmax(220px, 1fr)); }
+}
+@media (max-width: 768px) {
+  .adminSidebar { display: none; }
+  .statsGrid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,103 @@
+.panel {
+  border: 1px solid #eaeaea;
+  border-radius: 14px;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.04);
+}
+
+.title {
+  margin: 0 0 14px;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: .2px;
+}
+
+.section {
+  margin-bottom: 14px;
+  padding: 14px;
+  border: 1px dashed #d7d7d7;
+  border-radius: 12px;
+  background: #fafafa;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  background: #f1f5f9;
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.muted {
+  color: #71717a;
+}
+
+.inlineRow {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #eef2ff;
+  border: 1px solid #c7d2fe;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.btn {
+  appearance: none;
+  border: 1px solid #d4d4d8;
+  background: #fff;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .06s ease, box-shadow .12s ease, background .12s ease;
+}
+.btn:hover { box-shadow: 0 2px 10px rgba(0,0,0,.06); transform: translateY(-1px); }
+
+.btnPrimary {
+  color: #fff;
+  background: #2563eb;
+  border-color: #2563eb;
+}
+.btnPrimary:hover { background: #1e40af; border-color: #1e40af; }
+
+.btnDanger {
+  color: #fff;
+  background: #ef4444;
+  border-color: #ef4444;
+}
+.btnDanger:hover { background: #b91c1c; border-color: #b91c1c; }
+
+.btnGhost {
+  background: #f4f4f5;
+  border-color: #e4e4e7;
+}
+.btnGhost:hover { background: #e4e4e7; }
+
+.msg { margin-top: 10px; padding: 10px 12px; border-radius: 10px; font-weight: 600; }
+.msgOk { background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }
+.msgErr { background: #fef2f2; color: #7f1d1d; border: 1px solid #fecaca; }
+
+/* nhỏ gọn hơn trên màn nhỏ */
+@media (max-width: 560px) {
+  .panel { padding: 14px; }
+  .section { padding: 12px; }
+  .title { font-size: 20px; }
+}

@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Ảnh nền toàn trang */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  animation: slideshow 15s infinite;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Lớp phủ mờ hoặc thêm màu nếu cần */
+.overlay {
+  background-color: rgba(255, 255, 255, 0.8);
+  height: 100%;
+  width: 100%;
+}
+
+/* Media queries tổng quát */
+@media (max-width: 992px) {
+  /* Thu gọn padding và font size chung */
+  .hero-content .text-overlay,
+  .monan-hue-overlay,
+  .dia-diem-section .container {
+    padding: 20px;
+    max-width: 90%;
+  }
+
+  .main-title,
+  .main-title-2,
+  .section-title,
+  .dia-diem-section .section-title {
+    font-size: 36px;
+  }
+
+  .welcome-text,
+  .dia-diem-section .section-subtitle {
+    font-size: 50px;
+  }
+
+  .monan-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 576px) {
+  .description,
+  .section-description,
+  .dia-diem-section .section-description {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .monan-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .btn-xemthem,
+  .btn-xemthem-2,
+  .dia-diem-section .section-button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .footer-email {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-email input,
+  .footer-email button {
+    width: 100%;
+  }
+}
+
