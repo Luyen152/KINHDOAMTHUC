@@ -6,6 +6,8 @@ import { useRouter } from 'next/router';
 import styles from '../styles/header.module.css';
 import SearchBox from '../templates/SearchBox';
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
 export default function Header() {
   const [user, setUser] = useState(null);
   const [menus, setMenus] = useState([]);
@@ -21,7 +23,7 @@ export default function Header() {
 
   const updateCartCountFromAPI = async (userId) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/donhang/dem/${userId}`);
+      const res = await fetch(`${API_URL}/api/donhang/dem/${userId}`);
       const data = await res.json();
       setCartCount(data.count || 0);
     } catch {
@@ -31,15 +33,19 @@ export default function Header() {
 
   useEffect(() => {
     const storedUser = localStorage.getItem('loggedInUser');
+
     if (storedUser) {
       try {
         const userData = JSON.parse(storedUser);
         setUser(userData);
-        if (userData?.id) updateCartCountFromAPI(userData.id);
+
+        if (userData?.id) {
+          updateCartCountFromAPI(userData.id);
+        }
       } catch {}
     }
 
-    fetch('http://localhost:5000/api/menus')
+    fetch(`${API_URL}/api/menus`)
       .then((res) => res.json())
       .then((data) => setMenus(Array.isArray(data) ? data : []))
       .catch(() => setMenus([]));
@@ -57,7 +63,10 @@ export default function Header() {
 
     const handleCartUpdated = () => {
       const userData = JSON.parse(localStorage.getItem('loggedInUser') || 'null');
-      if (userData?.id) updateCartCountFromAPI(userData.id);
+
+      if (userData?.id) {
+        updateCartCountFromAPI(userData.id);
+      }
     };
 
     document.addEventListener('click', handleClickOutside);
@@ -81,91 +90,67 @@ export default function Header() {
 
   return (
     <header ref={headerRef} className={styles.header}>
-      {/* Toggle menu mobile */}
       <div className={styles['menu-toggle']} onClick={() => setMenuOpen(!menuOpen)}>
         <i className="bi bi-list"></i>
       </div>
 
-      {/* Logo */}
       <div className={styles.logo}>
-        <Link href="/" aria-label="Trang chủ" style={{ textDecoration: 'none' }}>
+        <Link href="/" style={{ textDecoration: 'none' }}>
           <Image src="/img/Asset-6.png" alt="Logo Website" width={120} height={50} />
         </Link>
       </div>
 
-      {/* Menu chính */}
       <nav className={`${styles.menu} ${menuOpen ? styles.active : ''}`}>
         <ul className={styles['main-menu']}>
-          {/* Menu động (bỏ Giỏ hàng & Tìm kiếm) */}
           {menus.map((menu) =>
             menu.title !== 'Giỏ hàng' && menu.title !== 'Tìm kiếm' ? (
               <li key={menu.id}>
-                <Link href={menu.url} className={styles['nav-link']} style={{ textDecoration: 'none' }}>
+                <Link href={menu.url} className={styles['nav-link']}>
                   {menu.title.toUpperCase()}
                 </Link>
               </li>
             ) : null
           )}
 
-          {/* Ô tìm kiếm */}
-          <li><SearchBox /></li>
-
-          {/* Giỏ hàng */}
           <li>
-            <Link href="/gio-hang" className={styles['nav-link']} style={{ textDecoration: 'none' }}>
-              <i className="bi bi-cart3" style={{ fontSize: '18px' }}></i>
+            <SearchBox />
+          </li>
+
+          <li>
+            <Link href="/gio-hang" className={styles['nav-link']}>
+              <i className="bi bi-cart3"></i>
               <span className={styles['cart-count']}>{cartCount}</span>
             </Link>
           </li>
 
-          {/* User dropdown */}
           {user ? (
             <li className={`${styles['nav-item']} ${styles['user-menu']}`} ref={dropdownRef}>
               <span
                 className={styles['nav-link']}
-                onClick={(e) => {
-                  e.preventDefault();
-                  setDropdownVisible((v) => !v);
-                }}
-                style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none' }}
+                onClick={() => setDropdownVisible(!dropdownVisible)}
+                style={{ cursor: 'pointer' }}
               >
-                <span>{user.name}</span> <i className="bi bi-caret-down-fill"></i>
+                {user.name} <i className="bi bi-caret-down-fill"></i>
               </span>
 
               {dropdownVisible && (
                 <ul className={styles['dropdown-menu']}>
-                  {/* Chỉ admin mới thấy */}
                   {isAdmin && (
                     <li>
-                      <Link
-                        href="/admin"
-                        className={styles['dropdown-item']}
-                        style={{ textDecoration: 'none' }}
-                        onClick={() => setDropdownVisible(false)}
-                      >
+                      <Link href="/admin" className={styles['dropdown-item']}>
                         Vào trang quản trị
                       </Link>
                     </li>
                   )}
 
-                  {/* ✅ Thông tin cá nhân: dẫn tới /tai-khoan (hiển thị địa chỉ + đơn đã xác nhận) */}
                   <li>
-                    <Link
-                      href="/tai-khoan"
-                      className={styles['dropdown-item']}
-                      style={{ textDecoration: 'none' }}
-                      onClick={() => setDropdownVisible(false)}
-                    >
+                    <Link href="/tai-khoan" className={styles['dropdown-item']}>
                       Thông tin cá nhân
                     </Link>
                   </li>
 
                   <li>
-                    <span
-                      className={styles['dropdown-item']}
-                      onClick={handleLogout}
-                      style={{ textDecoration: 'none', cursor: 'pointer' }}
-                    >
+                    <span className={styles['dropdown-item']} onClick={handleLogout}>
                       Đăng xuất
                     </span>
                   </li>
@@ -174,8 +159,8 @@ export default function Header() {
             </li>
           ) : (
             <li className={styles['nav-item']}>
-              <Link href="/login" className={styles['nav-link']} style={{ textDecoration: 'none' }}>
-                <span>Đăng nhập</span> <i className="bi bi-person-circle"></i>
+              <Link href="/login" className={styles['nav-link']}>
+                Đăng nhập <i className="bi bi-person-circle"></i>
               </Link>
             </li>
           )}
