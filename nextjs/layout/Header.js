@@ -6,7 +6,8 @@ import { useRouter } from 'next/router';
 import styles from '../styles/header.module.css';
 import SearchBox from '../templates/SearchBox';
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
+const API_URL =
+  process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
 export default function Header() {
   const [user, setUser] = useState(null);
@@ -42,13 +43,15 @@ export default function Header() {
         if (userData?.id) {
           updateCartCountFromAPI(userData.id);
         }
-      } catch {}
+      } catch { }
     }
 
-    fetch(`${API_URL}/api/menus`)
-      .then((res) => res.json())
-      .then((data) => setMenus(Array.isArray(data) ? data : []))
-      .catch(() => setMenus([]));
+    useEffect(() => {
+      fetch(`${API_URL}/api/menus`)
+        .then((res) => res.json())
+        .then((data) => setMenus(Array.isArray(data) ? data : []))
+        .catch(() => setMenus([]));
+    }, []);
 
     const handleClickOutside = (e) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
