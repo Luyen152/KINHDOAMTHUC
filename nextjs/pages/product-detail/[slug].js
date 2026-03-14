@@ -26,7 +26,7 @@ export default function ProductDetailPage() {
 
     const fetchDish = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/dishes/slug/${slug}`);
+        const res = await fetch(`https://kinhdoamthuc.onrender.com/dishes/slug/${slug}`);
         const data = await res.json();
         if (data && data.id) {
           setDish(data);
@@ -50,7 +50,7 @@ export default function ProductDetailPage() {
 
     const loadComments = async () => {
       try {
-        const res = await fetch(`https://kinhdoamthuc.onrender.com/dishes/slug/${slug}`);
+        const res = await fetch(`https://kinhdoamthuc.onrender.com/api/comments/${dish.id}`);
         const data = await res.json();
 
         const formatted = data.map(c => ({
@@ -63,12 +63,12 @@ export default function ProductDetailPage() {
 
         setComments(formatted);
       } catch (err) {
-        console.error('❌ Lỗi khi load bình luận:', err);
+        console.error(err);
       }
     };
 
     loadComments();
-  }, [dish]);
+  }, [dish?.id]);
 
   // ➕ Thêm bình luận
   const handleAddComment = async (newComment) => {
