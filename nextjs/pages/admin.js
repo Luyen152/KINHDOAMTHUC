@@ -11,7 +11,8 @@ import {
 } from 'chart.js';
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, BarElement, Title, Tooltip, Legend);
 
-const API_BASE = process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:5000';
+const API_BASE =
+  process.env.NEXT_PUBLIC_API_BASE || 'https://kinhdoamthuc.onrender.com';
 
 const STATUS = {
   CART: 'Đang xử lý',

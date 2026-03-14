@@ -1,7 +1,7 @@
 // lib/api/comments.js
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:5000';
+const API_BASE_URL = 'https://kinhdoamthuc.onrender.com';
 
 export async function fetchComments() {
   try {

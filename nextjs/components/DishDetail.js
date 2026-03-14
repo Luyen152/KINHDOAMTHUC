@@ -11,7 +11,7 @@ export default function DishDetail({ dish }) {
 
       <div className={styles['image-wrapper']}>
         <img
-          src={`http://localhost:5000/images/${dish.image || 'monngon8.jpg'}`}
+          src={`https://kinhdoamthuc.onrender.com/images/${dish.image || 'monngon8.jpg'}`}
           alt={dish.name}
           width={600}
           height={400}

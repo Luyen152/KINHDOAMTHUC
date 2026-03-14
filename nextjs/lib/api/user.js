@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:5000/api/users';
+const BASE_URL = 'https://kinhdoamthuc.onrender.com/api/users';
 
 // Gửi thông tin đăng nhập
 export const loginUser = (email, password) => {

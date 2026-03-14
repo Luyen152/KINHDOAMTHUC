@@ -2,11 +2,11 @@
 import axios from 'axios';
 
 export const getAllDishes = async () => {
-  const res = await axios.get('http://localhost:5000/dishes');
+  const res = await axios.get('https://kinhdoamthuc.onrender.com/dishes');
   return res.data;
 };
 
 export const getDishBySlug = async (slug) => {
-  const res = await axios.get(`http://localhost:5000/dishes/slug/${slug}`);
+  const res = await axios.get(`https://kinhdoamthuc.onrender.com/dishes/slug/${slug}`);
   return res.data;
 };

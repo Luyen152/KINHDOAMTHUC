@@ -18,7 +18,7 @@ export default function TimKiemPage() {
     const fetchData = async () => {
       if (query) {
         const res = await fetch(
-          `http://localhost:5000/api/products/search?keyword=${encodeURIComponent(query)}`
+          `https://kinhdoamthuc.onrender.com/api/products/search?keyword=${encodeURIComponent(query)}`
         );
         const data = await res.json();
         setResults(Array.isArray(data) ? data : []);

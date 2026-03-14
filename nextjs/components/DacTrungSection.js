@@ -12,7 +12,7 @@ export default function DacTrungSection({ dishes }) {
           <Link href={`/product-detail/${item.slug}`} key={index} className={styles.card}>
             <div>
               <Image
-                src={`http://localhost:5000/images/${item.image}`}
+                src={`https://kinhdoamthuc.onrender.com/images/${item.image}`}
                 alt={item.name}
                 width={300}
                 height={200}

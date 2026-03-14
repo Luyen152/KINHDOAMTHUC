@@ -1,7 +1,6 @@
 // /lib/api/save.js
 export const API_BASE =
-  process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:5000';
-
+  process.env.NEXT_PUBLIC_API_BASE || 'https://kinhdoamthuc.onrender.com';
 // 👉 Bật gửi cookie nếu thật sự cần (đã cấu hình CORS bên BE)
 // .env.local: NEXT_PUBLIC_WITH_CREDENTIALS=1
 const WITH_CREDENTIALS =
