@@ -50,7 +50,9 @@ export default function ProductDetailPage() {
 
     const loadComments = async () => {
       try {
-        const res = await fetch(`https://kinhdoamthuc.onrender.com/api/comments/${dish.id}`);
+        const res = await fetch(
+          `https://kinhdoamthuc.onrender.com/api/comments/dish/${dish.id}`
+        );
         const data = await res.json();
 
         const formatted = data.map(c => ({

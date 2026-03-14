@@ -21,7 +21,9 @@ export default function CommentList({ comments, currentUser, onDelete }) {
                 <span key={i} className={i < c.rating ? '' : styles['star-grey']}>★</span>
               ))}
             </div>
-            <p className={styles['comment-text']}>{c.text}</p>
+            <p className={styles['comment-text']}>
+              {c.text || c.content}
+            </p>
           </div>
         </div>
       ))}
