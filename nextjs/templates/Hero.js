@@ -3,6 +3,9 @@ import { useState } from 'react';
 import Image from 'next/image';
 import styles from '../styles/homepage.module.css';
 
+const API_URL =
+  process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+
 export default function Hero({ slides = [] }) {
   const [current, setCurrent] = useState(0);
   const [showFull, setShowFull] = useState(false);
@@ -51,18 +54,21 @@ export default function Hero({ slides = [] }) {
             style={{ display: index === current ? 'flex' : 'none' }}
           >
             <Image
-              src={`http://localhost:5000/images/${slide.image}`}
+              src={`${API_URL}/images/${slide.image}`}
               alt={currentContent.title}
               fill
               className={styles['bg-img']}
               unoptimized
             />
+
             <div className={styles['text-overlay']}>
               <h2 className={styles['welcome-text']}>Welcome</h2>
               <h1 className={styles['main-title']}>{currentContent.title}</h1>
+
               <p className={styles.description}>
                 {showFull ? currentContent.description : shortDesc}
               </p>
+
               <button
                 className={styles['btn-xemthem']}
                 onClick={() => setShowFull(!showFull)}
@@ -72,6 +78,7 @@ export default function Hero({ slides = [] }) {
             </div>
           </div>
         ))}
+
         <button className={styles.prev} onClick={prevSlide}>❮</button>
         <button className={styles.next} onClick={nextSlide}>❯</button>
       </div>
