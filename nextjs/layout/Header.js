@@ -33,55 +33,54 @@ export default function Header() {
   };
 
   useEffect(() => {
-    const storedUser = localStorage.getItem('loggedInUser');
+  const storedUser = localStorage.getItem('loggedInUser');
 
-    if (storedUser) {
-      try {
-        const userData = JSON.parse(storedUser);
-        setUser(userData);
-
-        if (userData?.id) {
-          updateCartCountFromAPI(userData.id);
-        }
-      } catch { }
-    }
-
-    useEffect(() => {
-      fetch(`${API_URL}/api/menus`)
-        .then((res) => res.json())
-        .then((data) => setMenus(Array.isArray(data) ? data : []))
-        .catch(() => setMenus([]));
-    }, []);
-
-    const handleClickOutside = (e) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-        setDropdownVisible(false);
-      }
-    };
-
-    const handleScroll = () => {
-      const header = headerRef.current;
-      if (header) header.classList.toggle(styles.scrolled, window.scrollY > 10);
-    };
-
-    const handleCartUpdated = () => {
-      const userData = JSON.parse(localStorage.getItem('loggedInUser') || 'null');
+  if (storedUser) {
+    try {
+      const userData = JSON.parse(storedUser);
+      setUser(userData);
 
       if (userData?.id) {
         updateCartCountFromAPI(userData.id);
       }
-    };
+    } catch {}
+  }
 
-    document.addEventListener('click', handleClickOutside);
-    window.addEventListener('scroll', handleScroll);
-    window.addEventListener('cartUpdated', handleCartUpdated);
+  // fetch menus
+  fetch(`${API_URL}/api/menus`)
+    .then((res) => res.json())
+    .then((data) => setMenus(Array.isArray(data) ? data : []))
+    .catch(() => setMenus([]));
 
-    return () => {
-      document.removeEventListener('click', handleClickOutside);
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('cartUpdated', handleCartUpdated);
-    };
-  }, [router.pathname]);
+  const handleClickOutside = (e) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+      setDropdownVisible(false);
+    }
+  };
+
+  const handleScroll = () => {
+    const header = headerRef.current;
+    if (header) header.classList.toggle(styles.scrolled, window.scrollY > 10);
+  };
+
+  const handleCartUpdated = () => {
+    const userData = JSON.parse(localStorage.getItem('loggedInUser') || 'null');
+
+    if (userData?.id) {
+      updateCartCountFromAPI(userData.id);
+    }
+  };
+
+  document.addEventListener('click', handleClickOutside);
+  window.addEventListener('scroll', handleScroll);
+  window.addEventListener('cartUpdated', handleCartUpdated);
+
+  return () => {
+    document.removeEventListener('click', handleClickOutside);
+    window.removeEventListener('scroll', handleScroll);
+    window.removeEventListener('cartUpdated', handleCartUpdated);
+  };
+}, [router.pathname]);
 
   const handleLogout = () => {
     localStorage.removeItem('loggedInUser');
