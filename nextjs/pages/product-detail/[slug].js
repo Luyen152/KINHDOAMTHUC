@@ -50,7 +50,7 @@ export default function ProductDetailPage() {
 
     const loadComments = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/comments/dish/${dish.id}`);
+        const res = await fetch(`https://kinhdoamthuc.onrender.com/dishes/slug/${slug}`);
         const data = await res.json();
 
         const formatted = data.map(c => ({
@@ -73,7 +73,7 @@ export default function ProductDetailPage() {
   // ➕ Thêm bình luận
   const handleAddComment = async (newComment) => {
     try {
-      const res = await fetch('http://localhost:5000/api/comments', {
+      const res = await fetch('https://kinhdoamthuc.onrender.com/api/comments', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newComment)
@@ -100,7 +100,7 @@ export default function ProductDetailPage() {
   const handleDeleteComment = async (id) => {
     if (!confirm('Bạn chắc chắn muốn xoá bình luận này?')) return;
     try {
-      await fetch(`http://localhost:5000/api/comments/${id}`, { method: 'DELETE' });
+      await fetch(`https://kinhdoamthuc.onrender.com/api/comments/${id}`, { method: 'DELETE' });
       setComments(prev => prev.filter(c => c.id !== id));
     } catch (err) {
       alert('Lỗi khi xoá bình luận');
@@ -123,7 +123,7 @@ export default function ProductDetailPage() {
     };
 
     try {
-      const res = await fetch('http://localhost:5000/api/donhang/them-mon', {
+      const res = await fetch('https://kinhdoamthuc.onrender.com/api/donhang/them-mon', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
@@ -153,7 +153,9 @@ export default function ProductDetailPage() {
       <section className={styles.hero}>
         <div
           className={styles['hero-banner']}
-          style={{ backgroundImage: `url(http://localhost:5000/images/${dish.image || 'monngon8.jpg'})` }}
+          style={{
+            backgroundImage: `url(https://kinhdoamthuc.onrender.com/images/${dish.image || 'monngon8.jpg'})`
+          }}
         >
           <div className={styles['hero-overlay']}>
             <h1 className={styles['hero-title']}>{dish.name}</h1>
